@@ -1,1 +1,2 @@
-export const _MarketplaceContractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+export const _MarketplaceContractAddress =
+  "0xe3A8c1Cf6BFC42218d4d705BbAE8de237F0f4Ed1";
