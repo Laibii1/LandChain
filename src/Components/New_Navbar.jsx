@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LandChain from "../assets/LandChain logo.png";
+import LandChain from "../assets/LandChainlogo.png";
 import SearchIcon from "../assets/searchicon.png";
 import "./font.css";
 import { FiMenu, FiX } from "react-icons/fi";
