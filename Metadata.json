@@ -1,0 +1,10 @@
+{
+  "name": "Tether USD",
+  "symbol": "USDT",
+  "description": "USDT Stablecoin",
+  "image": "https://lavender-solid-muskox-330.mypinata.cloud/ipfs/bafkreiah23pf4onoagme4qnm5xmmsvfwkpjs7nrqhsffax6kd6ylpjggsy",
+  "decimals": 18,
+  "properties": {
+    "logoURI": "https://lavender-solid-muskox-330.mypinata.cloud/ipfs/bafkreiah23pf4onoagme4qnm5xmmsvfwkpjs7nrqhsffax6kd6ylpjggsy"
+  }
+}
