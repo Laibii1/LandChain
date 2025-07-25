@@ -7,11 +7,11 @@ import SignUp from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import DropDown from "./Pages/DropDown";
-import Dashboard from "./Pages/Dashboard";
-import NFT from "./Pages/NFT";
+import FetchNFT from "./Pages/FetchNFTWallet";
 import NFTCard from "./Components/NFTCard";
 import Bottombar from "./Components/Bottombar";
 import NFTAuction from "./Pages/NFTAuction";
+import NFTDashboard from "./Pages/NFTDashboard";
 // import ViewYourNft from "./Pages/ViewYourNft";
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
         <Route path="/Marketplace" element={<NFTMarketplace />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/DD" element={<DropDown />} />
-        <Route path="/NFT" element={<NFT />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/FetchNFT" element={<FetchNFT />} />
+        <Route path="/NFTDashboard" element={<NFTDashboard />} />
         <Route path="/NFTCard" element={<NFTCard />} />
         <Route path="/NFTAuction" element={<NFTAuction />} />
       </Routes>

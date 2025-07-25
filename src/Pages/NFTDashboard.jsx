@@ -3,7 +3,7 @@ import Bottombar from "../Components/Bottombar";
 import Navbar from "../Components/Navbar";
 import { TokenClass } from "../EthersClasses/Token";
 
-const Dashboard = () => {
+const NFTDashboard = () => {
   const cards = [
     {
       id: 1,
@@ -97,4 +97,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default NFTDashboard;

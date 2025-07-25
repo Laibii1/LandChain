@@ -11,7 +11,7 @@ function Bottombar() {
           type="button"
           class="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
           onClick={() => {
-            navigate("/Dashboard");
+            navigate("/NFTDashboard");
           }}
         >
           <svg
@@ -38,7 +38,7 @@ function Bottombar() {
           type="button"
           class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           onClick={() => {
-            navigate("/NFT");
+            navigate("/FetchNFT");
           }}
         >
           <svg

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TokenClass } from "../EthersClasses/Token";
 
-const NFT = () => {
+const FetchNFT = () => {
   const [tokenId, setTokenId] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [error, setError] = useState("");
@@ -80,4 +80,4 @@ const NFT = () => {
   );
 };
 
-export default NFT;
+export default FetchNFT;
