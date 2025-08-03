@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaArrowLeft } from "react-icons/fa";
 import Logo from "../assets/LandChain.png";
-import HouseImg from "../assets/Login.png";
+import HouseImg from "../assets/login.png";
 import "../Components/font.css";
 
 const Login = () => {
