@@ -1,151 +1,115 @@
 import '../font.css';
+import {FaArrowRight} from "react-icons/fa";
+import propertyIcon1 from '../../assets/propertyIcon1.png'; 
+import propertyIcon2 from '../../assets/propertyIcon2.png';
+import propertyIcon3 from '../../assets/propertyIcon3.png';
+
 
 export const PropertyCards = () => {
  
   return (
-    <section class="text-gray-700 body-font border-t border-gray-200">
-        <div class="container px-5 py-20 mx-auto">
-          <div class="flex flex-col text-center w-full mb-20">
-            <h2 class="text-md text-[#D0482E] font-bold font-Inter tracking-widest font-medium title-font mb-1">
-              NonFungibleTokens
-            </h2>
-            <h1 class="sm:text-3xl text-2xl font-bold font-Inter text-gray-900">
-              Property Tokenization
-            </h1>
-          </div>
-          <div class="flex flex-wrap w-full">
-            <div class="p-4 md:w-1/3">
-              <div class="flex rounded-lg h-full bg-white p-8 flex-col border-[1px] border-black shadow-xl shadow-[rgba(109, 106, 106, 0.36)">
-                <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                  </div>
-                  <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Unlock Partial Ownership
-                  </h2>
-                </div>
-                <div class="flex-grow">
-                  <p class="leading-relaxed text-base">
-                    Invest in fractions of prime real estate Start your property
-                    portfolio with lower capital
-                  </p>
-                  <a class="mt-3 text-indigo-500 inline-flex items-center">
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="p-4 md:w-1/3">
-              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                  </div>
-                  <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Trade Properties Like Stocks
-                  </h2>
-                </div>
-                <div class="flex-grow">
-                  <p class="leading-relaxed text-base">
-                    {" "}
-                    Buy and sell property tokens anytime No more waiting months
+   <section className="text-gray-700 body-font border-t border-gray-200 w-full">
+  <div className="w-full px-10 lg:px-10 py-20"> 
+    <div className="flex flex-col text-center w-full mb-20">
+      <h2 className="text-md text-[#D0482E] font-bold font-Inter tracking-widest title-font mb-1">
+        NonFungibleTokens
+      </h2>
+      <h1 className="sm:text-3xl text-2xl font-bold font-Inter text-gray-900">
+        Property Tokenization
+      </h1>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
+
+  {/* Card 1 */}
+  <div className="mb-2">
+    <div className="flex flex-col items-center rounded-lg bg-white px-5 border border-black shadow-xl">
+      <div className="w-20 h-20 m-5">
+        <img src={propertyIcon1} alt=" Icon" className="w-20 h-20 object-contain" />
+      </div>
+      <h2 className="text-gray-900 text-lg font-semibold text-center mb-2 font-bold font-Inter">
+        Unlock Partial Ownership
+      </h2>
+      <p className="text-center text-base mb-4 font-ReemKufi text-sm">
+        Invest in fractions of prime real estate. Start your property portfolio with lower capital.
+      </p>
+
+      {/* Learn More Button */}
+      <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
+  <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center  font-ReemKufi font-bold">
+    Learn More
+  </span>
+  <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+</button>
+
+    </div>
+  </div>
+      
+      {/* Card 2 */}
+
+<div className="mb-2 ">
+    <div className="flex flex-col items-center rounded-lg  bg-white px-5 border border-black shadow-xl">
+      <div className="w-20 h-20 m-5">
+        <img src={propertyIcon2} alt=" Icon" className="w-20 h-20 object-contain" />
+      </div>
+      <h2 className="text-gray-900 text-lg font-semibold text-center mb-2 font-bold font-Inter">
+         Trade Properties Like Stocks
+      </h2>
+      <p className="text-center text-base mb-4  text-sm  font-ReemKufi">
+         Buy and sell property tokens anytime No more waiting months
                     for real estate transactions
-                  </p>
-                  <a class="mt-3 text-indigo-500 inline-flex items-center">
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="p-4 md:w-1/3">
-              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle cx="6" cy="6" r="3"></circle>
-                      <circle cx="6" cy="18" r="3"></circle>
-                      <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                    </svg>
-                  </div>
-                  <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Invest Globally, From Anywhere
-                  </h2>
-                </div>
-                <div class="flex-grow">
-                  <p class="leading-relaxed text-base">
-                    Access international property markets Diversify your
-                    portfolio across borders
-                  </p>
-                  <a class="mt-3 text-indigo-500 inline-flex items-center">
-                    Learn More
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+      </p>
+
+       {/* Learn More Button */}
+      <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
+  <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center  font-ReemKufi font-bold">
+    Learn More
+  </span>
+  <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+</button>
+    </div>
+  </div>
+
+
+
+           {/* Card 3 */}
+
+      <div className="mb-2 ">
+      <div className="flex flex-col items-center rounded-lg  bg-white px-5 border border-black shadow-xl ">
+        
+        {/* GIF Icon */}
+        <div className="w-20 h-20 m-5">
+          <img
+            src={propertyIcon3} // Make sure icon.gif is in public/assets/
+            alt=" Icon"
+            className="w-20 h-20 object-contain"
+          />
         </div>
-      </section>
+
+        {/* Title */}
+        <h2 className="text-gray-900 text-lg font-semibold text-center mb-2 font-bold font-Inter">
+         Invest Globally, From Anywhere
+        </h2>
+
+        {/* Description */}
+        <p className="text-center text-base mb-4 text-sm  font-ReemKufi">
+         Access international property markets Diversify your
+                    portfolio across borders
+        </p>
+       
+        {/* Learn More Button */}
+      <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
+  <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center  font-ReemKufi font-bold">
+    Learn More
+  </span>
+  <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+</button>
+
+      </div>
+    </div>
+
+           </div>
+  </div>
+</section>
   
 )}

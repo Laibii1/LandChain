@@ -1,15 +1,14 @@
 import { useState } from "react";
-import NFTMarketplace from "./Pages/NFTMarketplace";
-import Maincard from "./Components/Maincard";
+import {NFTMarketplace} from "./Pages/NFTMarketplacePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import SignUp from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import DropDown from "./Pages/DropDown";
-import FetchNFT from "./Pages/FetchNFTWallet";
+import FetchNFT from "./Pages/FetchNFTWalletPage";
 import NFTCard from "./Components/NFTCard";
-import Bottombar from "./Components/Bottombar";
+//import Bottombar from "./Components/Bottombar";
 import NFTAuction from "./Pages/NFTAuction";
 import NFTDashboard from "./Pages/NFTDashboard";
 // import ViewYourNft from "./Pages/ViewYourNft";
@@ -31,7 +30,7 @@ function App() {
         <Route path="/NFTCard" element={<NFTCard />} />
         <Route path="/NFTAuction" element={<NFTAuction />} />
       </Routes>
-      <Bottombar />
+ 
     </BrowserRouter>
   );
 }

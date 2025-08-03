@@ -1,111 +1,127 @@
-import React, { useEffect } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple, FaArrowLeft } from "react-icons/fa";
+import Logo from "../assets/LandChain.png";
+import HouseImg from "../assets/Login-img.png";
+import '../Components/font.css';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [agree, setAgree] = useState(false);
 
-  const Nextpage = () => {
-    navigate("/Marketplace");
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (agree && fullName && email && password) {
+      navigate("/Marketplace");
+    } else {
+      alert("Please complete all fields and agree to the terms.");
+    }
   };
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    appendDots: (dots) => (
-      <div style={{ bottom: "-30px" }}>
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
-  };
-  useEffect(() => {
-    console.log("Render");
-  }, []);
-
-  const images = [
-    "https://www.thewowstyle.com/wp-content/uploads/2015/01/house-architecture-photography-hd-wallpaper-1920x1200-9237.jpg",
-    "https://www.thewowstyle.com/wp-content/uploads/2015/01/50bd3b7bb3fc4b60b100011c_house-m-monovolume-architecture-design_haus_mayer_05.jpg",
-    "https://www.thewowstyle.com/wp-content/uploads/2015/01/50bd3b43b3fc4b60b100011b_house-m-monovolume-architecture-design_haus_mayer_04.jpg",
-  ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl flex">
-        {/* Left Column - Login Form */}
-        <div className="w-1/2 p-4 flex flex-col justify-center">
-          <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-          <form className="space-y-6">
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email
+    <div className="min-h-screen bg-[#F3F3F3] flex items-center justify-center px-4">
+      <div className="w-full max-w-4xl bg-[#191919] text-white flex overflow-hidden shadow-lg">
+        
+        {/* Left Image Panel */}
+        <div className="w-2/3 hidden md:block relative px-3 py-5 ">
+          <img
+            src={HouseImg}
+            alt="Building"
+            className="h-full w-full object-cover rounded-lg"
+          />
+          {/* Logo & Button */}
+          <div className="absolute top-6 left-6">
+            <img src={Logo} alt="Landchain Logo" className="h-12" />
+          </div>
+          <button
+            onClick={() => navigate('/')}
+            className="absolute top-10 right-6 text-[12px] border border-white rounded-full px-4 py-1 bg-[#2C2C2C] hover:border-[#D0482E] transition font-ReemKufi flex items-center gap-2"
+          >
+            <FaArrowLeft className="text-white text-sm" />
+               Back to Main page
+          </button>
+        </div>
+
+        {/* Right Form Panel */}
+        <div className="w-full text-center justify-center md:w-1/2 px-8 py-20">
+          <h2 className="text-xl font-bold mb-2 font-Inter">Get Started Now</h2>
+          <p className="text-[12px] mb-6 text-gray-300">Please login to your account to continue</p>
+
+          <form onSubmit={handleLogin}>
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              className="text-white focus:outline-none focus:ring-1 focus:ring-[#D0482E] bg-[#404040] px-3 py-2 rounded-md text-sm font-ReemKufi mb-2 w-full"
+            />
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="text-white focus:outline-none focus:ring-1 focus:ring-[#D0482E] bg-[#404040] px-3 py-2 rounded-md text-sm font-ReemKufi mb-2 w-full"
+            />
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="text-white focus:outline-none focus:ring-1 focus:ring-[#D0482E] bg-[#404040] px-3 py-2 rounded-md text-sm font-ReemKufi mb-2 w-full"
+            />
+
+            <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+              <label className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  checked={agree}
+                  onChange={() => setAgree(!agree)}
+                  className="mt-1 accent-white bg-transparent"
+                />
+                <span className="text-[12px] font-ReemKufi">
+                 I agree to{' '}
+                 <a href="#" className="text-[#D0482E] underline">
+                   Terms & Conditions
+                 </a>
+               </span>
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                placeholder="you@example.com"
-              />
+              <a href="#" className="text-white text-[13px] hover:underline font-ReemKufi">
+                Forgot Password?
+              </a>
             </div>
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                placeholder="••••••••"
-              />
-            </div>
+
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-              onClick={() => {
-                navigate("/Marketplace");
-              }}
+              className="w-full mt-2 font-ReemKufi font-bold bg-[#D0482E] hover:bg-[#A5250D] text-white font-semibold py-2 rounded transition"
             >
               Login
             </button>
           </form>
-          {/* Added text below the login button */}
-          <div className="text-center mt-4">
-            <span className="text-sm text-gray-600">
-              Don't have an account?{" "}
-              <a href="/signup" className="text-blue-500 hover:text-blue-700">
-                Sign up
-              </a>
-            </span>
-          </div>
-        </div>
 
-        {/* Right Column - Slider with Pictures */}
-        <div className="w-1/2 p-4 flex flex-col justify-between">
-          <div className="bg-white rounded-lg shadow-md overflow-hidden h-full">
-            <Slider {...sliderSettings}>
-              {images.map((image, index) => (
-                <div key={index} className="w-full h-80">
-                  <img
-                    src={image}
-                    alt={`Slide ${index}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </Slider>
+          <p className="text-center text-sm text-gray-400 mt-2">
+            Don’t have an account?{' '}
+            <a href="/signup" className="text-[#D0482E] underline">
+              Create an account
+            </a>
+          </p>
+
+          <div className="flex items-center my-4">
+            <hr className="flex-grow border-t border-gray-600" />
+            <span className="mx-4 text-sm">Or</span>
+            <hr className="flex-grow border-t border-gray-600" />
+          </div>
+
+          <div className="flex gap-4">
+            <button className="flex-1 border border-white py-2 rounded flex items-center justify-center gap-2 hover:border-[#D0482E] transition">
+              <FcGoogle className="text-lg" /> Google
+            </button>
+            <button className="flex-1 border border-white py-2 rounded flex items-center justify-center gap-2 hover:border-[#D0482E]  transition">
+              <FaApple className="text-lg" /> Apple
+            </button>
           </div>
         </div>
       </div>
