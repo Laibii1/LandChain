@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaArrowLeft } from "react-icons/fa";
 import Logo from "../assets/LandChain.png";
-import HouseImg from "../assets/Login-img.png";
-import '../Components/font.css';
+import HouseImg from "../assets/Login.png";
+import "../Components/font.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [agree, setAgree] = useState(false);
 
   const handleLogin = (e) => {
@@ -25,7 +25,6 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-[#F3F3F3] flex items-center justify-center px-4">
       <div className="w-full max-w-4xl bg-[#191919] text-white flex overflow-hidden shadow-lg">
-        
         {/* Left Image Panel */}
         <div className="w-2/3 hidden md:block relative px-3 py-5 ">
           <img
@@ -38,18 +37,20 @@ const Login = () => {
             <img src={Logo} alt="Landchain Logo" className="h-12" />
           </div>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
             className="absolute top-10 right-6 text-[12px] border border-white rounded-full px-4 py-1 bg-[#2C2C2C] hover:border-[#D0482E] transition font-ReemKufi flex items-center gap-2"
           >
             <FaArrowLeft className="text-white text-sm" />
-               Back to Main page
+            Back to Main page
           </button>
         </div>
 
         {/* Right Form Panel */}
         <div className="w-full text-center justify-center md:w-1/2 px-8 py-20">
           <h2 className="text-xl font-bold mb-2 font-Inter">Get Started Now</h2>
-          <p className="text-[12px] mb-6 text-gray-300">Please login to your account to continue</p>
+          <p className="text-[12px] mb-6 text-gray-300">
+            Please login to your account to continue
+          </p>
 
           <form onSubmit={handleLogin}>
             <input
@@ -83,13 +84,16 @@ const Login = () => {
                   className="mt-1 accent-white bg-transparent"
                 />
                 <span className="text-[12px] font-ReemKufi">
-                 I agree to{' '}
-                 <a href="#" className="text-[#D0482E] underline">
-                   Terms & Conditions
-                 </a>
-               </span>
+                  I agree to{" "}
+                  <a href="#" className="text-[#D0482E] underline">
+                    Terms & Conditions
+                  </a>
+                </span>
               </label>
-              <a href="#" className="text-white text-[13px] hover:underline font-ReemKufi">
+              <a
+                href="#"
+                className="text-white text-[13px] hover:underline font-ReemKufi"
+              >
                 Forgot Password?
               </a>
             </div>
@@ -103,7 +107,7 @@ const Login = () => {
           </form>
 
           <p className="text-center text-sm text-gray-400 mt-2">
-            Don’t have an account?{' '}
+            Don’t have an account?{" "}
             <a href="/signup" className="text-[#D0482E] underline">
               Create an account
             </a>
