@@ -23,7 +23,7 @@ function Model({ url, cursorX }) {
   );
 }
 
-export const HeroSectionCopy = () => {
+export const HeroSection3D = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cursorX, setCursorX] = useState(0.5); // 0 to 1 for rotation
@@ -41,7 +41,7 @@ export const HeroSectionCopy = () => {
 
   return (
     <section
-      className="text-gray-700 body-font bg-[#FFFEFE]"
+      className="text-gray-700 body-font bg-[#FFFEFE] mt-20"
       onMouseMove={handleMouseMove}
     >
       <div className="max-w-7xl mx-auto flex px-5 py-10 md:flex-row flex-col items-center">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { New_Navbar } from "../Components/New_Navbar";
-import  {HeroSectionCopy}  from "../Components/Landing page/Hero_section_copy";
+import  {HeroSection3D}  from "../Components/Landing page/Hero_section_3D";
 import { PropertyCards } from "../Components/Landing page/Property_tockenization_cards_section";
 import { UniqueNftSection } from "../Components/Landing page/Unique_Nft";
 import { FutureInsightSection } from "../Components/Landing page/FutureInsight_section";
@@ -15,14 +15,14 @@ const LandingPage = () => {
   return (
     <div>
       <New_Navbar />
-      <HeroSectionCopy/>
+      <HeroSection3D/>
       <PropertyCards/>
       <UniqueNftSection/>
       <FutureInsightSection/>
       <PricingSection/>
       <QuoteSection/>
       <MapSection/>
-      <Footer />
+
     </div>
   );
 };

@@ -1,36 +1,81 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { ethers } from "ethers";
+import { BrowserProvider, formatEther } from "ethers";
+import { NavLink } from "react-router-dom";
+
 import LandChain from "../assets/LandChain.png";
 import SearchIcon from "../assets/searchicon.png";
 import "./font.css";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaWallet, FaUnlink, FaCheckCircle  } from "react-icons/fa";
+import { FaWallet, FaUnlink, FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export const New_Navbar = () => {
-  const [account, setAccount] = useState("");
+export const New_Navbar = ({ onWalletChange }) => {
+const [account, setAccount] = useState("");
   const [isConnected, setIsConnected] = useState(false);
   const [showPlaceholder, setShowPlaceholder] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [balance, setBalance] = useState(null);
+  const [accountName, setAccountName] = useState("");
 
-// showing pop up when wallet connects
 
+//    Fetch balance when account/connection changes
+  useEffect(() => {
+  const fetchDetails = async () => {
+    if (account && isConnected && typeof window.ethereum !== "undefined") {
+      try {
+        const provider = new BrowserProvider(window.ethereum);
+
+        // Get balance
+        const balanceWei = await provider.getBalance(account);
+        const balanceEth = formatEther(balanceWei);
+        const formattedBalance = parseFloat(balanceEth).toFixed(4);
+        setBalance(formattedBalance);
+
+        // Get ENS name
+        const ensName = await provider.lookupAddress(account);
+        setAccountName(ensName || ""); // fallback to empty string if no ENS
+      } catch (error) {
+        console.error("Error fetching wallet details:", error);
+        setBalance(null);
+        setAccountName("");
+      }
+    }
+  };
+
+  fetchDetails();
+}, [account, isConnected]);
+
+
+  //  Notify parent (App.js) about wallet status
+const prevState = useRef({});
 useEffect(() => {
-  if (showPopup) {
-    const timer = setTimeout(() => {
-      setShowPopup(false);
-    }, 1000);
-    return () => clearTimeout(timer);
+  if (onWalletChange && account && isConnected && balance !== null) {
+    onWalletChange({ account, isConnected, balance, accountName });
   }
-}, [showPopup]);
+}, [account, isConnected, balance, accountName]);
 
-// checking wallet connection
+
+
+
+  // Popup auto-hide
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => setShowPopup(false), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
+
+  //  Check wallet status on mount
   useEffect(() => {
     checkConnection();
   }, []);
 
   const checkConnection = async () => {
-    if (typeof window.ethereum !== "undefined") {
+    const userDisconnected = localStorage.getItem("walletDisconnected") === "true";
+
+    if (typeof window.ethereum !== "undefined" && !userDisconnected) {
       try {
         const accounts = await window.ethereum.request({ method: "eth_accounts" });
         if (accounts.length > 0) {
@@ -43,14 +88,18 @@ useEffect(() => {
     }
   };
 
-  const connectWallet = async () => {
+ const connectWallet = async () => {
   if (typeof window.ethereum !== "undefined") {
     try {
       const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
       if (accounts.length > 0) {
         setAccount(accounts[0]);
         setIsConnected(true);
-        setShowPopup(true); // Show the popup here
+        localStorage.removeItem("walletDisconnected");
+        setShowPopup(true);
+
+        // Reload the page after successful connection
+        window.location.reload();
       }
     } catch (error) {
       console.error("Error connecting wallet:", error);
@@ -60,10 +109,17 @@ useEffect(() => {
   }
 };
 
-  const disconnectWallet = () => {
-    setAccount("");
-    setIsConnected(false);
-  };
+const disconnectWallet = () => {
+  setAccount("");
+  setIsConnected(false);
+  setBalance(null);
+  localStorage.setItem("walletDisconnected", "true");
+
+  // Reload the page after disconnection
+  window.location.reload();
+};
+
+
 
 
 
@@ -71,11 +127,12 @@ useEffect(() => {
 
 
   return (
-    <nav className="bg-[#D0482E] px-4 py-1 rounded-3xl w-[95%] mx-auto mt-8 z-50 flex flex-wrap items-center justify-between relative">
+    <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 z-50 bg-[#D0482E] px-4 py-1 rounded-3xl w-[95%] mt-8 flex flex-wrap items-center justify-between">
+
      {/* Logo */}
-      <div className="flex items-center space-x-3 ml-2 -mb-2">
+      <div className="flex items-center space-x-3 ml-2 ">
       <Link to="/">
-        <img src={LandChain} alt="LandChain Logo" className=" cursor-pointer h-[35px] lg:h-[60px] sm:h-[35px] md:h-[35px]" />
+        <img src={LandChain} alt="LandChain Logo" className=" cursor-pointer h-[35px] lg:h-[50px] sm:h-[35px] md:h-[35px]" />
         </Link>
       </div>
 
@@ -113,20 +170,49 @@ useEffect(() => {
       {/* Fullscreen Hamburger Menu */}
       {menuOpen && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 w-[90%] bg-black opacity-90 text-white text-center flex flex-col py-6 gap-4 z-40 lg:hidden transition-all rounded-b-3xl">
-      <Link to="/FetchNFT" className="hover:underline">Wallet</Link>
-      <Link to="/DD" className="hover:underline">Mint NFT</Link>
-      <Link to="/Marketplace" className="hover:underline">Market Place</Link>
-      <Link to="/Profile" className="hover:underline">Profile</Link>
+      <NavLink to="/" className={({ isActive }) =>   isActive ? "underline font-medium" : "hover:underline"  }>        
+        Home
+       </NavLink>        
+       
+        <NavLink to="/FetchNFT" className={({ isActive }) =>  isActive ? "underline font-medium" : "hover:underline"}>        
+        Wallet
+        </NavLink>        
+       
+       <NavLink to="/DD" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline"}>
+          Mint NFT
+        </NavLink>        
+       
+        <NavLink to="/Marketplace" className={({ isActive }) =>   isActive ? "underline font-medium" : "hover:underline" }>        
+        Market Place
+        </NavLink>        
+       
+       <NavLink to="/Profile" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline" }>        
+        Profile
+        </NavLink>
      </div>
       )}
 
       {/* Nav Links for Large Screens */}
-      <div className="hidden lg:flex lg:items-center lg:space-x-6 text-white text-md font-medium font-Inter">
-      
-      <Link to="/FetchNFT" className="hover:underline">Wallet</Link>
-      <Link to="/DD" className="hover:underline">Mint NFT</Link>
-      <Link to="/Marketplace" className="hover:underline">Market Place</Link>
-      <Link to="/Profile" className="hover:underline">Profile</Link>
+      <div className="hidden lg:flex lg:items-center lg:space-x-6 text-white text-sm font-medium font-Inter">
+     <NavLink to="/" className={({ isActive }) =>   isActive ? "underline font-medium" : "hover:underline"  }>        
+        Home
+       </NavLink>        
+       
+        <NavLink to="/FetchNFT" className={({ isActive }) =>  isActive ? "underline font-medium" : "hover:underline"}>        
+        Wallet
+        </NavLink>        
+       
+       <NavLink to="/DD" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline"}>
+          Mint NFT
+        </NavLink>        
+       
+        <NavLink to="/Marketplace" className={({ isActive }) =>   isActive ? "underline font-medium" : "hover:underline" }>        
+        Market Place
+        </NavLink>        
+       
+       <NavLink to="/Profile" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline" }>        
+        Profile
+        </NavLink>
       </div>
 
       {/* Wallet Button & Address */}
@@ -137,7 +223,8 @@ useEffect(() => {
     </span>
   )}
 {showPopup && (
-   <div className="fixed inset-0 flex items-center justify-center z-50">
+ <div className="fixed mt-80 inset-0 flex items-center justify-center z-50">
+
       <div className="bg-black text-white px-10 py-8 rounded-lg shadow-lg flex flex-col items-center gap-5 border-[1px] border-white">
         <FaCheckCircle className="text-[#D0482E] bg-white rounded-full text-4xl" />
         <span className="text-md font-ReemKufi">Wallet Connected Succesfully!</span>
@@ -167,6 +254,16 @@ useEffect(() => {
 
 {/* Wallet Icon for Small/Medium Screens */}
 <div className="flex lg:hidden ml-4">
+  {showPopup && (
+ <div className="fixed mt-80 inset-0 flex items-center justify-center z-50">
+
+      <div className="bg-black text-white px-10 py-8 rounded-lg shadow-lg flex flex-col items-center gap-5 border-[1px] border-white">
+        <FaCheckCircle className="text-[#D0482E] bg-white rounded-full text-4xl" />
+        <span className="text-md font-ReemKufi">Wallet Connected Succesfully!</span>
+      </div>
+    </div>
+)}
+
   {isConnected ? (
     <FaUnlink
       onClick={disconnectWallet}

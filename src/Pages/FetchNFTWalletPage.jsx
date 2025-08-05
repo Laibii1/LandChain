@@ -11,7 +11,7 @@ const FetchNFT = () => {
     <div>
       <New_Navbar/>
       <FetchNFTSection/>
-      <Footer/>
+      
     </div>
   );
 };

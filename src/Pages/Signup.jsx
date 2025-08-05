@@ -60,8 +60,8 @@ const [errors, setErrors] = useState({
 });
 
   return (
-    <div className="min-h-screen bg-[#F3F3F3] flex items-center justify-center px-4">
-      <div className="w-full max-w-4xl bg-[#191919] text-white flex overflow-hidden shadow-lg">
+    <div className="min-h-screen bg-[#F3F3F3] flex items-center justify-center px-4 mt-20">
+      <div className="w-full max-w-4xl bg-[#191919] text-white flex overflow-hidden shadow-lg mt-10">
         
         {/* Left Side with Image */}
      <div className="w-2/3 hidden md:block relative px-3 py-5">

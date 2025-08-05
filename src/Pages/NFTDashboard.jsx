@@ -1,7 +1,7 @@
 import React from "react";
 import Bottombar from "../Components/Bottombar";
-import Navbar from "../Components/Navbar";
 import { TokenClass } from "../EthersClasses/Token";
+import { New_Navbar } from "../Components/New_Navbar";
 
 const NFTDashboard = () => {
   const cards = [
@@ -39,8 +39,8 @@ const NFTDashboard = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="min-w-screen min-h-screen bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 flex justify-center items-center py-12 px-4 sm:px-6 lg:px-8">
+      <New_Navbar/>
+      <div className="min-w-screen min-h-screen bg-gradient-to-t from-white via-white to-[#F95C3E] flex justify-center items-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.map((card) => (
             <div

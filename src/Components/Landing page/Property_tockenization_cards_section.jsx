@@ -22,7 +22,7 @@ export const PropertyCards = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
 
   {/* Card 1 */}
-  <div className="mb-2">
+  <div className="mb-2 h-50">
     <div className="flex flex-col items-center rounded-lg bg-white px-5 border border-black shadow-xl">
       <div className="w-20 h-20 m-5">
         <img src={propertyIcon1} alt=" Icon" className="w-20 h-20 object-contain" />
