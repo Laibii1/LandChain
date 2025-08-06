@@ -3,6 +3,8 @@ import { FaArrowRight } from "react-icons/fa";
 import propertyIcon1 from "../../assets/PropertyIcon1.png";
 import propertyIcon2 from "../../assets/PropertyIcon2.png";
 import propertyIcon3 from "../../assets/PropertyIcon3.png";
+import { Link } from "react-router-dom";
+
 
 export const PropertyCards = () => {
   return (
@@ -37,12 +39,15 @@ export const PropertyCards = () => {
               </p>
 
               {/* Learn More Button */}
-              <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
-                <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center  font-ReemKufi font-bold">
-                  Learn More
-                </span>
-                <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-              </button>
+             <Link to="/Marketplace">
+               <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
+                 <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center font-ReemKufi font-bold">
+                   Learn More
+                 </span>
+                 <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+               </button>
+             </Link>
+
             </div>
           </div>
 
@@ -66,12 +71,15 @@ export const PropertyCards = () => {
               </p>
 
               {/* Learn More Button */}
-              <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
-                <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center  font-ReemKufi font-bold">
-                  Learn More
-                </span>
-                <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-              </button>
+              <Link to="/Marketplace">
+                <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
+                  <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center font-ReemKufi font-bold">
+                    Learn More
+                  </span>
+                  <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                </button>
+              </Link>
+
             </div>
           </div>
 
@@ -100,12 +108,15 @@ export const PropertyCards = () => {
               </p>
 
               {/* Learn More Button */}
-              <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
-                <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center  font-ReemKufi font-bold">
-                  Learn More
-                </span>
-                <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-              </button>
+              <Link to="/Marketplace">
+               <button className="group relative bg-[#D0482E] hover:bg-[#BC290D] text-white font-medium py-2 px-6 rounded mb-5 transition-all duration-300 w-40 hover:w-48 overflow-hidden">
+                 <span className="block transition-all duration-300 group-hover:translate-x-[-8px] text-center font-ReemKufi font-bold">
+                   Learn More
+                 </span>
+                 <FaArrowRight className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+               </button>
+             </Link>
+
             </div>
           </div>
         </div>

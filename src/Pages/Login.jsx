@@ -102,7 +102,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full mt-2 font-ReemKufi font-bold bg-[#D0482E] hover:bg-[#A5250D] text-white font-semibold py-2 rounded transition"
+              className="w-full mt-10 font-ReemKufi font-bold bg-[#D0482E] hover:bg-[#A5250D] text-white font-semibold py-2 rounded transition"
             >
               Login
             </button>

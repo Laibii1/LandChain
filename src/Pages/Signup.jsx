@@ -162,12 +162,12 @@ const [errors, setErrors] = useState({
     </a>
   </span>
 </label>
-{errors.Agree && <p className="text-red-500 text-xs mb-4">{errors.Agree}</p>}
+{errors.Agree && <p className="text-red-500 text-xs mb-5">{errors.Agree}</p>}
 
 
           <button
             onClick={handleRegisterAccount}
-            className="w-full font-ReemKufi font-bold bg-[#D0482E] hover:bg-[#A5250D] text-white font-semibold py-2 rounded transition"
+            className="w-full font-ReemKufi mt-10 font-bold bg-[#D0482E] hover:bg-[#A5250D] text-white font-semibold py-2 rounded transition"
           >
             Create an Account
           </button>

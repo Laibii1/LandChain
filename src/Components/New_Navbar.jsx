@@ -178,7 +178,7 @@ const disconnectWallet = () => {
         Wallet
         </NavLink>        
        
-       <NavLink to="/DD" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline"}>
+       <NavLink to="/uploadnft" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline"}>
           Mint NFT
         </NavLink>        
        
@@ -202,7 +202,7 @@ const disconnectWallet = () => {
         Wallet
         </NavLink>        
        
-       <NavLink to="/DD" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline"}>
+       <NavLink to="/uploadnft" className={({ isActive }) => isActive ? "underline font-medium" : "hover:underline"}>
           Mint NFT
         </NavLink>        
        

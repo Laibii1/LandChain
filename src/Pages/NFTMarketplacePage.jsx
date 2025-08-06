@@ -1,15 +1,11 @@
-import Footer from "../Components/Footer";
-import { ExploreMoreSection } from "../Components/MarketPlace/ExploreMoreSection";
 
-import { MarketPlaceHeroSection } from "../Components/MarketPlace/MarketPlaceHeroSection";
-import { New_Navbar } from "../Components/New_Navbar";
+import { MarketPlaceSection } from "../Components/MarketPlace/MarketPlaceSection";
+
 
 export const NFTMarketplace = ({ walletInfo }) => {
   return (
     <div>
-      <MarketPlaceHeroSection walletInfo={walletInfo} />
-      <ExploreMoreSection/>
-
+      <MarketPlaceSection walletInfo={walletInfo} />
     </div>
   );
 }
