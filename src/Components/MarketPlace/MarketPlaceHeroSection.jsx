@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
 
-import user1 from "../../assets/user 1.png";
-import user2 from "../../assets/user 2.png";
-import user3 from "../../assets/user 3.png";
-import user4 from "../../assets/user 4.png";
+import user1 from "../../assets/user1.png";
+import user2 from "../../assets/user2.png";
+import user3 from "../../assets/user3.png";
+import user4 from "../../assets/user4.png";
 import arrow from "../../assets/Arrow.png";
 import elec from "../../assets/Electricity.png";
 import { FaArrowRight } from "react-icons/fa";
