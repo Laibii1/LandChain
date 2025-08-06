@@ -23,8 +23,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F3F3F3] flex items-center justify-center px-4">
-      <div className="w-full max-w-4xl bg-[#191919] text-white flex overflow-hidden shadow-lg">
+
+    <div className="min-h-screen flex items-center justify-center px-4 mt-20">
+      <div className="w-full max-w-4xl bg-[#191919] text-white flex overflow-hidden shadow-lg mt-10">
+
         {/* Left Image Panel */}
         <div className="w-2/3 hidden md:block relative px-3 py-5 ">
           <img
@@ -107,7 +109,7 @@ const Login = () => {
           </form>
 
           <p className="text-center text-sm text-gray-400 mt-2">
-            Don’t have an account?{" "}
+            Dont have an account?{" "}
             <a href="/signup" className="text-[#D0482E] underline">
               Create an account
             </a>

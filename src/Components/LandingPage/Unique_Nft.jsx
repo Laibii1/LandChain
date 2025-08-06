@@ -20,20 +20,15 @@ export const UniqueNftSection = () => {
       </div>
 
       {/* Section with background image */}
-    <section
-  className="relative bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden mx-auto   "
-  style={{
-    backgroundImage: `url(${bgImage})`,
-    height: "90vh",
-    width: "90%",
-  }}
+    <section className="relative bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden mx-auto w-[90%] h-[150vh] sm:h-[110vh] md:h-[100vh]"
+style={{ backgroundImage: `url(${bgImage})` }}
 >
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-0 z-0" />
+        <div className="absolute inset-0 bg-black bg-opacity-0 z-10" />
 
         {/* Content on top of image */}
-        <div className="relative z-10 px-5 py-10 h-full lg:w-[60%] flex flex-wrap items-center justify-center">
-           <div className="mt-10 mb-10 max-w-xl mx-auto text-center">
+        <div className="relative z-20 px-5 py-10 h-full lg:w-[60%] flex flex-wrap items-center justify-center">
+           <div className="lg:mt-10 lg:mb-10 max-w-xl mx-auto text-center">
           <h2 className="text-md md:text-lg font-bold text-white font-Inter font-bold mb-4">
            Elevate Your Digital Portfolio with Unique NFT
            </h2>

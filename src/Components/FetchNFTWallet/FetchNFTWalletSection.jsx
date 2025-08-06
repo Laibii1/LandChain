@@ -33,7 +33,7 @@ export const FetchNFTSection = () => {
 };
 
   return (
-    <div className="max-w-xl mx-auto mt-20 mb-40 px-6 py-10 border border-gray-300 rounded-lg shadow-md bg-[#191919]">
+    <div className="max-w-xl mx-auto mt-40 mb-40 px-6 py-10 border border-gray-300 rounded-lg shadow-md bg-[#191919]">
       <h3 className="text-xl font-semibold text-center mb-5 text-white font-ReemKufi">NFT Viewer</h3>
 
       <input

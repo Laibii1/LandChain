@@ -1,37 +1,65 @@
-import { useState } from "react";
+import React, { useState, useCallback } from "react";
+
 import {NFTMarketplace} from "./Pages/NFTMarketplacePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import SignUp from "./Pages/Signup";
 import Login from "./Pages/Login";
-import Profile from "./Pages/Profile";
+import {Profile} from "./Pages/Profile";
 import DropDown from "./Pages/DropDown";
 import FetchNFT from "./Pages/FetchNFTWalletPage";
 import NFTCard from "./Components/NFTCard";
-//import Bottombar from "./Components/Bottombar";
-import NFTAuction from "./Pages/NFTAuction";
 import NFTDashboard from "./Pages/NFTDashboard";
+import MarketPlaceViewNFT from "./Pages/MarketPlaceViewNFTPage";
+import { New_Navbar } from "./Components/New_Navbar";
+import { ExploreMoreSection } from "./Components/MarketPlace/ExploreMoreSection";
+import Footer from "./Components/Footer";
 // import ViewYourNft from "./Pages/ViewYourNft";
+//import Bottombar from "./Components/Bottombar";
+
+
 
 function App() {
-  const [count, setCount] = useState(0);
+  
+  const [walletInfo, setWalletInfo] = useState({
+    account: "",
+    isConnected: false,
+    balance: null,
+    accountName:"",
+  });
+
+  const handleWalletChange = (info) => {
+    console.log("📥 Setting wallet info in App.js:", info);
+    setWalletInfo(info);}
+
+
 
   return (
+    <>
+   
+     
     <BrowserRouter>
+        <New_Navbar onWalletChange={handleWalletChange} />
+   
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/viewnft" element={<MarketPlaceViewNFT />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/Marketplace" element={<NFTMarketplace />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/Marketplace" element={<NFTMarketplace walletInfo={walletInfo} />} />
+        <Route path="/profile" element={<Profile walletInfo={walletInfo}/>} />
         <Route path="/DD" element={<DropDown />} />
         <Route path="/FetchNFT" element={<FetchNFT />} />
         <Route path="/NFTDashboard" element={<NFTDashboard />} />
         <Route path="/NFTCard" element={<NFTCard />} />
-        <Route path="/NFTAuction" element={<NFTAuction />} />
+        <Route path="/exploremore" element={<ExploreMoreSection />} />
+
+        
       </Routes>
+      <Footer/>
  
     </BrowserRouter>
+    </>
   );
 }
 

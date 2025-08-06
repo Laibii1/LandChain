@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+/*import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../font.css';
 import house1 from "../../assets/marketplace2.png";
-import house2 from "../../assets/marketplace1.png";
-import Bottombar from "../Bottombar";
 import { TokenClass } from "../../EthersClasses/Token";
 import { MarketplaceClass } from "../../EthersClasses/Marketplace";
 import { ethers } from "ethers";
@@ -312,9 +310,9 @@ export const NFTMarketplaceMainSection=()=> {
           </div>
         </div>
     
-      <Bottombar />
+    
     </div>
   );
 }
 
-
+*/
