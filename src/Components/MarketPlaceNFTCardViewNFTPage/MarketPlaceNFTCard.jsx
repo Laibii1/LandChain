@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
 import { MarketplaceClass } from "../../EthersClasses/Marketplace";
 import { FaArrowLeft } from "react-icons/fa";
+
 import "../font.css";
 
 export const ViewNFTCard = () => {
@@ -59,7 +60,7 @@ export const ViewNFTCard = () => {
       case "Rent":
         return "Rent Now";
       case "Auction":
-        return "Auction Sale";
+        return "Bid";
       default:
         return "Take Action";
     }
@@ -187,6 +188,19 @@ export const ViewNFTCard = () => {
                   <span>{saleType}</span>
                 </div>
               </div>
+
+              <div className="flex justify-between items-center">
+                {saleType === "Auction" && (
+                  <input
+                     type="number"
+                     id="auctionPrice"
+                     name="auctionPrice"
+                     placeholder="Enter starting bid"
+                     className="mt-1 block w-full border font-medium text-sm border-gray-300 rounded-sm shadow-sm px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500"
+                    />
+                    )} 
+               </div>
+
 
               <div className="pt-8">
                 <button

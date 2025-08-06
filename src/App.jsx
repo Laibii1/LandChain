@@ -6,16 +6,13 @@ import LandingPage from "./Pages/LandingPage";
 import SignUp from "./Pages/Signup";
 import Login from "./Pages/Login";
 import {Profile} from "./Pages/Profile";
-import DropDown from "./Pages/DropDown";
 import FetchNFT from "./Pages/FetchNFTWalletPage";
 import NFTCard from "./Components/NFTCard";
 import NFTDashboard from "./Pages/NFTDashboard";
 import MarketPlaceViewNFT from "./Pages/MarketPlaceViewNFTPage";
 import { New_Navbar } from "./Components/New_Navbar";
-import { ExploreMoreSection } from "./Components/MarketPlace/ExploreMoreSection";
 import Footer from "./Components/Footer";
-// import ViewYourNft from "./Pages/ViewYourNft";
-//import Bottombar from "./Components/Bottombar";
+import UploadNFT from "./Pages/UploadNFTPage";
 
 
 
@@ -48,11 +45,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/Marketplace" element={<NFTMarketplace walletInfo={walletInfo} />} />
         <Route path="/profile" element={<Profile walletInfo={walletInfo}/>} />
-        <Route path="/DD" element={<DropDown />} />
         <Route path="/FetchNFT" element={<FetchNFT />} />
         <Route path="/NFTDashboard" element={<NFTDashboard />} />
         <Route path="/NFTCard" element={<NFTCard />} />
-        <Route path="/exploremore" element={<ExploreMoreSection />} />
+        <Route path="/uploadnft" element={<UploadNFT/>} />
 
         
       </Routes>

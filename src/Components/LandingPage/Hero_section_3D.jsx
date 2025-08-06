@@ -1,15 +1,11 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
-import model from "../../assets/HouseModel/alpha-blend-litmus.glb"
+import model from "../../assets/HouseModel/alpha-blend-litmus.glb";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import "../font.css";
 
-
-const modelSlides = [
- model
-   
-];
+const modelSlides = [model];
 
 function Model({ url, cursorX }) {
   const { scene } = useGLTF(url);
@@ -41,7 +37,7 @@ export const HeroSection3D = () => {
 
   return (
     <section
-      className="text-gray-700 body-font bg-[#FFFEFE] mt-20"
+      className="text-gray-700 body-font bg-[#FFFEFE]"
       onMouseMove={handleMouseMove}
     >
       <div className="max-w-7xl mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
@@ -52,9 +48,10 @@ export const HeroSection3D = () => {
           </h2>
           <div className="w-80 h-[2px] bg-[#D0482E] rounded-full mb-4"></div>
           <p className="mb-8 text-[15px] text-gray-800 max-w-xl font-Josefin leading-relaxed font-semibold">
-            Discover a new era of homeownership with our cutting-edge blockchain platform.
-            Transform your property into a digital asset you can securely trade, manage, and grow.
-            Your home becomes more than a living space — it becomes a smart investment in your future.
+            Discover a new era of homeownership with our cutting-edge blockchain
+            platform. Transform your property into a digital asset you can
+            securely trade, manage, and grow. Your home becomes more than a
+            living space — it becomes a smart investment in your future.
           </p>
           <div className="flex justify-center space-x-4">
             <button
